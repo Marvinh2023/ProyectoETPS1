@@ -28,6 +28,7 @@
             android:layout_height="94dp"
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline7"
             app:srcCompat="@drawable/logo" />
@@ -40,8 +41,9 @@
             android:textColor="#FAF5F5"
             android:textColorLink="#1E1C1C"
             android:textSize="34sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline8"
+            app:layout_constraintBottom_toTopOf="@+id/guideline11"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -49,7 +51,7 @@
             android:id="@+id/editTextTextPersonName"
             android:layout_width="318dp"
             android:layout_height="64dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="28dp"
             android:backgroundTint="#FAF5F5"
             android:ems="10"
             android:hint="Usuario o correo electronico"
@@ -57,21 +59,21 @@
             android:textColorHint="#EDE7E7"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline8" />
+            app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="325dp"
             android:layout_height="58dp"
+            android:layout_marginTop="40dp"
             android:backgroundTint="#FAF5F5"
             android:ems="10"
             android:hint="Contraseña"
             android:inputType="textPassword"
             android:textColorHint="#EFE7E7"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
@@ -80,21 +82,21 @@
             android:id="@+id/button2"
             android:layout_width="168dp"
             android:layout_height="63dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:background="@null"
             android:backgroundTint="#D61515"
             android:text="Iniciar session"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.517"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline9" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:text="o"
             android:textColor="#FAF5F5"
             android:textColorLink="#F3F2F2"
@@ -110,41 +112,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:onClick="Register"
             android:text="Crea una cuenta"
             android:textColor="#FAF5F5"
             android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline13"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="4dp" />
+            app:layout_constraintGuide_percent="0.0056179776" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline8"
+            android:id="@+id/guideline11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="171dp" />
+            app:layout_constraintGuide_begin="182dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline9"
+            android:id="@+id/guideline13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="186dp" />
+            app:layout_constraintGuide_begin="686dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="715dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
