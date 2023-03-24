@@ -18,5 +18,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intento=new Intent(this,Form_Register.class);
         startActivity(intento);
     }
-
+    public void Options(View v){
+        Intent intento=new Intent(this,Form_Options.class);
+        startActivity(intento);
+    }
 }

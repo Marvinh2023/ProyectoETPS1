@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ProyectoETPS1</string>
+    <string name="title_activity_form_options">Form_Options</string>
+    <string name="tab_text_1">Ofertas</string>
+    <string name="tab_text_2">History</string>
+    <string name="tab_text_4">Puntos</string>
+    <string name="tab_text_3">Perfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

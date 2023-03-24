@@ -85,6 +85,7 @@
             android:layout_marginTop="20dp"
             android:background="@null"
             android:backgroundTint="#D61515"
+            android:onClick="Options"
             android:text="Iniciar session"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
