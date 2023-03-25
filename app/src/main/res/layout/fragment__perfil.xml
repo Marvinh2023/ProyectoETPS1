@@ -32,8 +32,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="142dp"
-                    android:background="@drawable/border_buttom" >
+                    android:layout_height="103dp"
+                    android:background="@drawable/border_buttom">
 
                     <ImageView
                         android:id="@+id/imageView4"
@@ -59,12 +59,99 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="396dp"
-                    android:background="@drawable/border_buttom"/>
+                    android:layout_height="294dp"
+                    android:background="@drawable/border_buttom">
+
+                    <EditText
+                        android:id="@+id/editTextTextPersonName7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:backgroundTint="#EFE7E7"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="Juan Perez"
+                        android:textColor="#FAF5F5"
+                        android:textColorHint="#EFE7E7"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextTextPersonName8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="12dp"
+                        android:backgroundTint="#EFE7E7"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="juan@gmail.com"
+                        android:textColor="#FAF5F5"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+
+                    <EditText
+                        android:id="@+id/editTextTextPersonName9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="12dp"
+                        android:backgroundTint="#EFE7E7"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="********"
+                        android:textColor="#FAF5F5"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+
+                    <EditText
+                        android:id="@+id/editTextTextPersonName10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="12dp"
+                        android:backgroundTint="#EFE7E7"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="*******"
+                        android:textColor="#FAF5F5"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="#00000000"
+                        android:text="Actualizar datos"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName10" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="115dp" />
+                    android:layout_height="115dp" >
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:text="Cerrar Sesión"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.238" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

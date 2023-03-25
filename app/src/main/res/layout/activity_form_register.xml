@@ -53,13 +53,13 @@
             android:layout_height="wrap_content"
             android:text="TANQUE LLENO"
             android:textColor="#FAF5F5"
-            android:textSize="34sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.466" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
@@ -81,7 +81,7 @@
             android:id="@+id/editTextTextPersonName3"
             android:layout_width="320dp"
             android:layout_height="48dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#FAF5F5"
             android:ems="10"
             android:hint="Correo"
@@ -97,7 +97,7 @@
             android:id="@+id/editTextTextPersonName4"
             android:layout_width="320dp"
             android:layout_height="48dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#FAF5F5"
             android:ems="10"
             android:hint="Contraseña"
@@ -113,7 +113,7 @@
             android:id="@+id/editTextTextPersonName5"
             android:layout_width="320dp"
             android:layout_height="48dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#FAF5F5"
             android:ems="10"
             android:hint="Repita contraseña"
@@ -136,10 +136,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
-            app:layout_constraintVertical_bias="0.108" />
+            app:layout_constraintVertical_bias="0.117" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
