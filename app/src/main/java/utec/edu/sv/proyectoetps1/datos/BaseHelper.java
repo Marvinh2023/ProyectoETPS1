@@ -68,8 +68,8 @@ public class BaseHelper extends SQLiteOpenHelper {
                 "DUI TEXT NOT NULL, "+
                 "USUARIO TEXT NOT NULL, "+
                 "CONTRASENA TEXT NOT NULL, "+
-                "ESTADO TEXT NOT NULL, "+
-                "PUNTAJE TEXT NOT NULL, "+
+                "ESTADO TEXT DEFAULT 1,"+
+                "PUNTAJE TEXT DEFAULT 0, "+
                 "FOREIGN KEY(" +  FOREIGN_TIPOCLI + " ) REFERENCES " + TABLA_CLIENTE + "IDTIPOGAS"
                 +")");
 
