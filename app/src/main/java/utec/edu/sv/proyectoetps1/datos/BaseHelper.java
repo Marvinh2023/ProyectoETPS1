@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class BaseHelper extends SQLiteOpenHelper {
 
     private static  final int VERSION_BASEDATOS=1;
-    private static  final String NOMBRE_BASE="BDTANQUELLENO.db";
+    private static  final String NOMBRE_BASE="DBTANQUELLENO.db";
 
     public static   final String TABLA_TIPOGAS="t_tipo_gas";
     public static   final String TABLA_TIPOCLI="t_tipo_cliente";
@@ -45,7 +45,7 @@ public class BaseHelper extends SQLiteOpenHelper {
                 "IDTIPOGAS INTEGER NOT NULL ,"+
                 "NOMBRE TEXT NOT NULL ,"+
                 "UBICACION TEXT NOT NULL, "+
-                "FOREIGN KEY(" +  FOREIGN_TIPOGAS + " ) REFERENCES " + TABLA_TIPOGAS + "IDTIPOGAS"
+                "FOREIGN KEY(" +  FOREIGN_TIPOGAS + " ) REFERENCES " + TABLA_TIPOGAS + " (IDTIPOGAS)"
                 +")");
 
         db.execSQL("CREATE TABLE "+TABLA_OFERTA+" ("+
@@ -55,7 +55,7 @@ public class BaseHelper extends SQLiteOpenHelper {
                 "FECHAINICIO TEXT NOT NULL, "+
                 "FECHAFIN TEXT NOT NULL, "+
                 "CANTIDAD_PUNTOS TEXT NOT NULL, "+
-                "FOREIGN KEY(" +  FOREIGN_TIPOGAS + " ) REFERENCES " + TABLA_TIPOGAS + "IDTIPOGAS"
+                "FOREIGN KEY(" +  FOREIGN_TIPOGAS + " ) REFERENCES " + TABLA_TIPOGAS + " (IDTIPOGAS)"
                 +")");
 
         db.execSQL("CREATE TABLE "+TABLA_CLIENTE+" ("+
@@ -70,7 +70,7 @@ public class BaseHelper extends SQLiteOpenHelper {
                 "CONTRASENA TEXT NOT NULL, "+
                 "ESTADO TEXT DEFAULT 1,"+
                 "PUNTAJE TEXT DEFAULT 0, "+
-                "FOREIGN KEY(" +  FOREIGN_TIPOCLI + " ) REFERENCES " + TABLA_CLIENTE + "IDTIPOGAS"
+                "FOREIGN KEY(" +  FOREIGN_TIPOCLI + " ) REFERENCES " + TABLA_TIPOCLI + " (IDTIPOCLIENTE)"
                 +")");
 
         db.execSQL("CREATE TABLE "+TABLA_CLIENTEOFERTA+" ("+
@@ -79,8 +79,8 @@ public class BaseHelper extends SQLiteOpenHelper {
                 "IDCLIENTE INTEGER NOT NULL ,"+
                 "CANT_PUNTOS_REDIMIDOS TEXT NOT NULL ,"+
                 "FECHA_CAJEO TEXT NOT NULL, "+
-                "FOREIGN KEY(" +  FOREIGN_CLIENTE + " ) REFERENCES " + TABLA_CLIENTE + "IDCLIENTE ,"+
-                "FOREIGN KEY(" +  FOREIGN_OFERTA + " ) REFERENCES " + TABLA_OFERTA + "IDOEFRTA"
+                "FOREIGN KEY(" +  FOREIGN_OFERTA + " ) REFERENCES " + TABLA_OFERTA + " (IDOEFRTA) ,"+
+                "FOREIGN KEY(" +  FOREIGN_CLIENTE + " ) REFERENCES " + TABLA_CLIENTE + " (IDCLIENTE)"
                 +")");
 
         db.execSQL("CREATE TABLE "+TABLA_HISTORIALPUNTAJE+" ("+
@@ -91,13 +91,13 @@ public class BaseHelper extends SQLiteOpenHelper {
                 "PUNTAJE_ANTERIOR TEXT NOT NULL ,"+
                 "PUNTAJE_ACTUAL TEXT NOT NULL, "+
                 "CANT_GAS_RECIBIDO TEXT NOT NULL, "+
-                "FOREIGN KEY(" +  FOREIGN_GASOLINERA + " ) REFERENCES " + TABLA_GASOLINERA + "IDGAS ,"+
-                "FOREIGN KEY(" +  FOREIGN_TIPOGAS + " ) REFERENCES " + TABLA_TIPOGAS + "IDTIPOGAS"
+                "FOREIGN KEY(" +  FOREIGN_GASOLINERA + " ) REFERENCES " + TABLA_GASOLINERA + " (IDGAS) ,"+
+                "FOREIGN KEY(" +  FOREIGN_TIPOGAS + " ) REFERENCES " + TABLA_TIPOGAS + " (IDTIPOGAS)"
                 +")");
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_TIPOGAS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_TIPOCLI);
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_GASOLINERA);
