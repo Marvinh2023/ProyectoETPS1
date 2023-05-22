@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import utec.edu.sv.proyectoetps1.datos.Clientes;
+import utec.edu.sv.proyectoetps1.encrypt.EncryptPassword;
 
 public class Form_Register extends AppCompatActivity {
     EditText txtNombre,txtApellido,txtTelefono,txtCorreo,txtDui,txtUsuario,txtContrasena,txtRepetircontrasena;
@@ -35,6 +36,7 @@ public class Form_Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Clientes client = new Clientes(context);
+                EncryptPassword encryp = new EncryptPassword();
 
                 if (!txtContrasena.getText().toString().equals(txtRepetircontrasena.getText().toString()))
                 {
@@ -44,7 +46,7 @@ public class Form_Register extends AppCompatActivity {
 
                 long codeSave = client.insertClient(
                         txtNombre.getText().toString(),txtApellido.getText().toString(),txtTelefono.getText().toString(),txtCorreo.getText().toString(),
-                        txtDui.getText().toString(),txtUsuario.getText().toString(),txtContrasena.getText().toString()
+                        txtDui.getText().toString(),txtUsuario.getText().toString(),encryp.encryptPassword(txtContrasena.getText().toString())
                 );
 
                 if ( codeSave > 0)
