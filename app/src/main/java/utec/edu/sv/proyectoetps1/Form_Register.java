@@ -38,6 +38,8 @@ public class Form_Register extends AppCompatActivity {
                 Clientes client = new Clientes(context);
                 EncryptPassword encryp = new EncryptPassword();
 
+                if(!validFields()) return;
+
                 if (!txtContrasena.getText().toString().equals(txtRepetircontrasena.getText().toString()))
                 {
                     Toast.makeText(getApplicationContext(), "Las contrasena no coinciden!", Toast.LENGTH_SHORT).show();
@@ -72,4 +74,62 @@ public class Form_Register extends AppCompatActivity {
         txtContrasena.setText("");
         txtRepetircontrasena.setText("");
     }
+    private boolean validFields() {
+        String nombre = txtNombre.getText().toString().trim();
+        String apellido = txtApellido.getText().toString().trim();
+        String telefono = txtTelefono.getText().toString().trim();
+        String correo = txtCorreo.getText().toString().trim();
+        String dui = txtDui.getText().toString().trim();
+        String usuario = txtUsuario.getText().toString().trim();
+        String contrasena = txtContrasena.getText().toString().trim();
+        String repetirContrasena = txtRepetircontrasena.getText().toString().trim();
+
+        if (nombre.isEmpty()) {
+            messageRequired("Nombre");
+            return false;
+        }
+
+        if (apellido.isEmpty()) {
+            messageRequired("Apellido");
+            return false;
+        }
+
+        if (telefono.isEmpty()) {
+            messageRequired("Telefono");
+            return false;
+        }
+
+        if (correo.isEmpty()) {
+            messageRequired("Correo");
+            return false;
+        }
+
+        if (dui.isEmpty()) {
+            messageRequired("DUI");
+            return false;
+        }
+
+        if (usuario.isEmpty()) {
+            messageRequired("Usuario");
+            return false;
+        }
+
+        if (contrasena.isEmpty()) {
+            messageRequired("Contrasena");
+            return false;
+        }
+
+        if (repetirContrasena.isEmpty()) {
+            messageRequired("Repita contrasena");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void messageRequired(String name)
+    {
+        Toast.makeText(getApplicationContext(), "El campo "+ name +" es requerido", Toast.LENGTH_SHORT).show();
+    }
+
 }
