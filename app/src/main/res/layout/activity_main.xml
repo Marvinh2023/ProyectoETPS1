@@ -49,7 +49,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/edtUserOrEmail"
             android:layout_width="318dp"
             android:layout_height="64dp"
             android:layout_marginTop="28dp"
@@ -65,7 +65,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/edtPassword"
             android:layout_width="325dp"
             android:layout_height="58dp"
             android:layout_marginTop="20dp"
@@ -77,22 +77,21 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toBottomOf="@+id/edtUserOrEmail" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnLogin"
             android:layout_width="168dp"
             android:layout_height="63dp"
             android:layout_marginTop="48dp"
             android:background="@null"
             android:backgroundTint="#D61515"
-            android:onClick="Options"
             android:text="Iniciar session"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
         <TextView
             android:id="@+id/textView4"
@@ -107,7 +106,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
         <TextView
             android:id="@+id/textView5"

@@ -62,65 +62,68 @@
                     android:background="@drawable/border_buttom">
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName7"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/edtPerfilName"
+                        android:layout_width="320dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
                         android:backgroundTint="#EFE7E7"
                         android:ems="10"
+                        android:hint="Nombre"
                         android:inputType="textPersonName"
-                        android:text="Juan Perez"
                         android:textColor="#FAF5F5"
                         android:textColorHint="#EFE7E7"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName8"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/edtPerfilEmail"
+                        android:layout_width="320dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="12dp"
                         android:backgroundTint="#EFE7E7"
                         android:ems="10"
+                        android:hint="Correo"
                         android:inputType="textPersonName"
-                        android:text="juan@gmail.com"
                         android:textColor="#FAF5F5"
+                        android:textColorHint="#EFE7E7"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+                        app:layout_constraintTop_toBottomOf="@+id/edtPerfilName" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName9"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/edtPerfilPass"
+                        android:layout_width="320dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="12dp"
                         android:backgroundTint="#EFE7E7"
                         android:ems="10"
+                        android:hint="Ingrese su antigua contrasena"
                         android:inputType="textPersonName"
-                        android:text="********"
                         android:textColor="#FAF5F5"
+                        android:textColorHint="#EFE7E7"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+                        app:layout_constraintTop_toBottomOf="@+id/edtPerfilEmail" />
 
                     <EditText
-                        android:id="@+id/editTextTextPersonName10"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/edtPerfilConfirm"
+                        android:layout_width="320dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="12dp"
                         android:backgroundTint="#EFE7E7"
                         android:ems="10"
+                        android:hint="Inrese su nueva contrasena"
                         android:inputType="textPersonName"
-                        android:text="*******"
                         android:textColor="#FAF5F5"
+                        android:textColorHint="#EFE7E7"
                         android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+                        app:layout_constraintTop_toBottomOf="@+id/edtPerfilPass" />
 
                     <Button
                         android:id="@+id/button4"
@@ -132,7 +135,7 @@
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName10" />
+                        app:layout_constraintTop_toBottomOf="@+id/edtPerfilConfirm" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
