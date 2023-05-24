@@ -2,6 +2,7 @@ package utec.edu.sv.proyectoetps1.entidades;
 
 public class Cliente {
     Integer Id;
+    String NombreTipoClient;
     String Nombre;
     String Apellido;
     String Telefono;
@@ -14,8 +15,9 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(Integer id, String nombre, String apellido, String telefono, String correo, String dui, String usuario, String contrasena, Integer puntaje) {
+    public Cliente(Integer id,String nombreTipoClient, String nombre, String apellido, String telefono, String correo, String dui, String usuario, String contrasena, Integer puntaje) {
         Id = id;
+        NombreTipoClient = nombreTipoClient;
         Nombre = nombre;
         Apellido = apellido;
         Telefono = telefono;
@@ -24,6 +26,14 @@ public class Cliente {
         Usuario = usuario;
         Contrasena = contrasena;
         Puntaje = puntaje;
+    }
+
+    public String getNombreTipoClient() {
+        return NombreTipoClient;
+    }
+
+    public void setNombreTipoClient(String nombreTipoClient) {
+        NombreTipoClient = nombreTipoClient;
     }
 
     public Integer getId() {

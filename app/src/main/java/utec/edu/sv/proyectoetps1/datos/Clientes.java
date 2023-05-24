@@ -44,54 +44,46 @@ public class Clientes extends BaseHelper{
          }
     }
 
-    public Cliente  checkUserCredentials(String username, String password) {
+    public Cliente checkUserCredentials(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selection = "USUARIO = ? AND CONTRASENA = ?";
+        String query = "SELECT c.*, tc.NOMTIPO AS TIPO_CLIENTE FROM " + TABLA_CLIENTE + " c " +
+                "INNER JOIN " + TABLA_TIPOCLI + " tc ON c.IDTIPOCLIENTE = tc.IDTIPOCLIENTE " +
+                "WHERE c.USUARIO = ? AND c.CONTRASENA = ?";
+
         String[] selectionArgs = {username, password};
-        Cursor cursor = db.query(TABLA_CLIENTE, null, selection, selectionArgs, null, null, null);
+        Cursor cursor = db.rawQuery(query, selectionArgs);
 
         Cliente cliente = null;
         if (cursor.moveToFirst()) {
-            // Obtener los índices de las columnas en el cursor
-            int Id = cursor.getColumnIndex("IDCLIENTE");
-            int Nombre = cursor.getColumnIndex("NOMBRE");
-            int Apellido = cursor.getColumnIndex("APELLIDO");
-            int Telefono = cursor.getColumnIndex("TELEFONO");
-            int Correo = cursor.getColumnIndex("CORREO");
-            int Dui = cursor.getColumnIndex("DUI");
-            int Usuario = cursor.getColumnIndex("USUARIO");
-            int Contrasena = cursor.getColumnIndex("CONTRASENA");
-            int Puntaje = cursor.getColumnIndex("PUNTAJE");
+            int idIndex = cursor.getColumnIndex("IDCLIENTE");
+            int tipoClienteIndex = cursor.getColumnIndex("TIPO_CLIENTE");
+            int nombreIndex = cursor.getColumnIndex("NOMBRE");
+            int apellidoIndex = cursor.getColumnIndex("APELLIDO");
+            int telefonoIndex = cursor.getColumnIndex("TELEFONO");
+            int correoIndex = cursor.getColumnIndex("CORREO");
+            int duiIndex = cursor.getColumnIndex("DUI");
+            int usuarioIndex = cursor.getColumnIndex("USUARIO");
+            int contrasenaIndex = cursor.getColumnIndex("CONTRASENA");
+            int puntajeIndex = cursor.getColumnIndex("PUNTAJE");
             // Obtener los valores de las columnas del cursor
-            int id = cursor.getInt(Id);
-            String nombre = cursor.getString(Nombre);
-            String apellido = cursor.getString(Apellido);
-            String telefono = cursor.getString(Telefono);
-            String correo = cursor.getString(Correo);
-            String dui = cursor.getString(Dui);
-            String usuario = cursor.getString(Usuario);
-            String contrasena = cursor.getString(Contrasena);
-            int puntaje = cursor.getInt(Puntaje);
-            // Crear el objeto User con los valores obtenidos
-            cliente = new Cliente(id, nombre, apellido,telefono,correo,dui,usuario,contrasena,puntaje);
+            int id = cursor.getInt(idIndex);
+            String tipoCliente = cursor.getString(tipoClienteIndex);
+            String nombre = cursor.getString(nombreIndex);
+            String apellido = cursor.getString(apellidoIndex);
+            String telefono = cursor.getString(telefonoIndex);
+            String correo = cursor.getString(correoIndex);
+            String dui = cursor.getString(duiIndex);
+            String usuario = cursor.getString(usuarioIndex);
+            String contrasena = cursor.getString(contrasenaIndex);
+            int puntaje = cursor.getInt(puntajeIndex);
+            // Crear el objeto Cliente con los valores obtenidos
+            cliente = new Cliente(id, tipoCliente, nombre, apellido, telefono, correo, dui, usuario, contrasena, puntaje);
         }
 
         cursor.close();
-        db.close();
-
         return cliente;
-        /*SQLiteDatabase db = this.getReadableDatabase();
-
-        String selection =  "USUARIO = ? AND CONTRASENA = ?";
-        String[] selectionArgs = {username, password};
-        Cursor cursor = db.query(TABLA_CLIENTE, null, selection, selectionArgs, null, null, null);
-
-        boolean isValid = cursor.moveToFirst();
-
-        cursor.close();
-        db.close();
-
-        return isValid;*/
     }
+
+
 }

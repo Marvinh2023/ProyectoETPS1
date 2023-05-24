@@ -4,6 +4,7 @@ package utec.edu.sv.proyectoetps1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -49,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
                 EncryptPassword encryp = new EncryptPassword();
                 String user = userNameOrPass.getText().toString();
                 String pass = encryp.encryptPassword(password.getText().toString());
+
+                SharedPreferences sharedPreferences = getSharedPreferences("my_preferences", getApplicationContext().MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("username", user);
+                editor.putString("password", pass);
+                editor.apply();
+
 
                 if(!validFields()) return ;
 
