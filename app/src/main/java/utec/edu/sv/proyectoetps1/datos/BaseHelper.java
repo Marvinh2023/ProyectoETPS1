@@ -28,7 +28,20 @@ public class BaseHelper extends SQLiteOpenHelper {
     public BaseHelper(@Nullable Context context) {
         super(context, NOMBRE_BASE, null, VERSION_BASEDATOS);
     }
+    @Override
+    public void onConfigure(SQLiteDatabase db) {
+        super.onConfigure(db);
+        db.disableWriteAheadLogging(); // Deshabilitar el modo WAL para la instancia de la base de datos
+    }
+    public SQLiteDatabase getWritableDatabaseWithJournal() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.disableWriteAheadLogging();
+        return db;
+    }
 
+    private void disableWriteAheadLogging(SQLiteDatabase db) {
+        db.disableWriteAheadLogging(); // Deshabilitar el modo WAL para la instancia de la base de datos
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+TABLA_TIPOGAS+" ("+

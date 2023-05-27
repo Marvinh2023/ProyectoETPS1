@@ -22,15 +22,15 @@ public class Form_Register extends AppCompatActivity {
         setContentView(R.layout.activity_form_register);
         context = getApplicationContext();
 
-        txtNombre = findViewById(R.id.edtNombre);
-        txtApellido = findViewById(R.id.edtApellido);
-        txtTelefono = findViewById(R.id.edtTelefono);
-        txtCorreo = findViewById(R.id.edtCorreo);
+        txtNombre = findViewById(R.id.edtNombreOferta);
+        txtApellido = findViewById(R.id.edtTipoGasOferta);
+        txtTelefono = findViewById(R.id.edtFechaIOferta);
+        txtCorreo = findViewById(R.id.edtFechaFinOferta);
         txtDui = findViewById(R.id.edtUsuario);
         txtUsuario = findViewById(R.id.edtUsuario);
         txtContrasena = findViewById(R.id.edtContrasena);
         txtRepetircontrasena = findViewById(R.id.edtRepetirContrasena);
-        btnRegistrar = findViewById(R.id.btnRegistrar);
+        btnRegistrar = findViewById(R.id.btnGuardarOferta);
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
