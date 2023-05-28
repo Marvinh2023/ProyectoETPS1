@@ -1,64 +1,49 @@
 package utec.edu.sv.proyectoetps1;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Fragment_Ofertas#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+import utec.edu.sv.proyectoetps1.adaptadores.LstOfertasAdapter;
+import utec.edu.sv.proyectoetps1.datos.Ofertas;
+import utec.edu.sv.proyectoetps1.entidades.EntOfertas;
+
 public class Fragment_Ofertas extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Fragment_Ofertas() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment_Ofertas.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Fragment_Ofertas newInstance(String param1, String param2) {
-        Fragment_Ofertas fragment = new Fragment_Ofertas();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    RecyclerView listaOfertas;
+    ArrayList<EntOfertas> AlistOferta;
+    Context context;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        context = getContext();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view;
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__ofertas, container, false);
+        view = inflater.inflate(R.layout.fragment__ofertas, container, false);
+
+        listaOfertas = view.findViewById(R.id.rcvLstOfertas);
+        listaOfertas.setLayoutManager(new LinearLayoutManager(context));
+
+        Ofertas dbOfertas = new Ofertas(context);
+
+        AlistOferta=new ArrayList<>();
+        LstOfertasAdapter adapter=new LstOfertasAdapter(dbOfertas.mostrarOfertas());
+        listaOfertas.setAdapter(adapter);
+
+        return view;
     }
 }

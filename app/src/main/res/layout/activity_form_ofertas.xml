@@ -74,18 +74,17 @@
                     android:textColorHint="#EFE7E7"
                     android:textStyle="bold" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/edtTipoGasOferta"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"
                     android:backgroundTint="#FAF5F5"
                     android:ems="10"
-                    android:hint="Tipo de gas"
-                    android:inputType="textPersonName"
                     android:textColor="#FAF5F5"
                     android:textColorHint="#EFE7E7"
-                    android:textStyle="bold" />
+                    />
+
 
                 <EditText
                     android:id="@+id/edtFechaIOferta"

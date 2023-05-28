@@ -35,7 +35,7 @@
                     android:background="@drawable/border_buttom">
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/tvNombre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -58,7 +58,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/tvNomGas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -67,7 +67,7 @@
                         android:textColor="#FAF5F5"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
 
                     <TextView
                         android:id="@+id/tvNumTarjeta"
@@ -81,7 +81,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/tvNivel" />
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/tvFechaIniFin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -90,7 +90,7 @@
                         android:textColor="#FAF5F5"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvNomGas" />
 
                     <TextView
                         android:id="@+id/tvPuntos"
