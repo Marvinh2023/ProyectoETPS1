@@ -51,20 +51,29 @@ public class MainActivity extends AppCompatActivity {
                 String user = userNameOrPass.getText().toString();
                 String pass = encryp.encryptPassword(password.getText().toString());
 
-                SharedPreferences sharedPreferences = getSharedPreferences("my_preferences", getApplicationContext().MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("username", user);
-                editor.putString("password", pass);
-                editor.apply();
-
-
-                if(!validFields()) return ;
-
-                if(!isValidCredentials(user,pass)) {
-                    Toast.makeText(getApplicationContext(), "Credenciales inválidas", Toast.LENGTH_SHORT).show(); return;
+                if (user.equals("ADMIN") && password.getText().toString().equals("123"))
+                {
+                    Intent intento = new Intent(MainActivity.this, Form_Ofertas.class);
+                    startActivity(intento);
                 }
-                Intent intento = new Intent(MainActivity.this, Form_Options.class);
-                startActivity(intento);
+                else
+                {
+                    SharedPreferences sharedPreferences = getSharedPreferences("my_preferences", getApplicationContext().MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("username", user);
+                    editor.putString("password", pass);
+                    editor.apply();
+
+
+                    if(!validFields()) return ;
+
+                    if(!isValidCredentials(user,pass)) {
+                        Toast.makeText(getApplicationContext(), "Credenciales inválidas", Toast.LENGTH_SHORT).show(); return;
+                    }
+                    Intent intento = new Intent(MainActivity.this, Form_Options.class);
+                    startActivity(intento);
+                }
+
                 cleanFields();
 
             }

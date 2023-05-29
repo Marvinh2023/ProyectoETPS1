@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -73,24 +74,103 @@ public class Ofertas extends BaseHelper{
         cursorPrverdor.close();
         return listaOfertas;
     }
+    public EntOfertas obtenerOfertaPorId(int idOferta) {
+        BaseHelper baseHelp = new BaseHelper(context);
+        SQLiteDatabase bd = baseHelp.getWritableDatabase();
+        EntOfertas oferta = null;
+        Cursor cursor;
+
+        String query = "SELECT O.IDOEFRTA, T.NOMGAS, O.NOMBRE, O.FECHAINICIO, O.FECHAFIN, O.CANTIDAD_PUNTOS " +
+                "FROM " + TABLA_OFERTA + " O " +
+                "INNER JOIN " + TABLA_TIPOGAS + " T ON O.IDTIPOGAS = T.IDTIPOGAS " +
+                "WHERE O.IDOEFRTA = ?";
+
+        String[] selectionArgs = {String.valueOf(idOferta)};
+        cursor = bd.rawQuery(query, selectionArgs);
+
+        if (cursor.moveToFirst()) {
+            oferta = new EntOfertas();
+            oferta.setIdOferta(cursor.getInt(0));
+            oferta.setNombreGas(cursor.getString(1));
+            oferta.setNombre(cursor.getString(2));
+            oferta.setFechaInicio(cursor.getString(3));
+            oferta.setFechaFin(cursor.getString(4));
+            oferta.setCantPuntos(cursor.getString(5));
+        }
+
+        cursor.close();
+        return oferta;
+    }
+
     public ArrayList<EntTipoGas> obtenerDatos() {
         BaseHelper baseHelp = new BaseHelper(context);
         SQLiteDatabase bd = baseHelp.getReadableDatabase();
         ArrayList<EntTipoGas> listaDatos = new ArrayList<>();
 
-        Cursor cursor = bd.rawQuery("SELECT * FROM "+TABLA_TIPOGAS, null);
+        Cursor cursor = bd.rawQuery("SELECT * FROM " + TABLA_TIPOGAS, null);
         if (cursor.moveToFirst()) {
             do {
-                int id = cursor.getInt(0);
-                String nombre = cursor.getString(1);
+                int idIndex = cursor.getColumnIndexOrThrow("IDTIPOGAS");
+                int nombreIndex = cursor.getColumnIndexOrThrow("NOMGAS");
+                int id = cursor.getInt(idIndex);
+                String nombre = cursor.getString(nombreIndex);
                 EntTipoGas gas = new EntTipoGas(id, nombre);
                 listaDatos.add(gas);
             } while (cursor.moveToNext());
         }
         cursor.close();
         bd.close();
-
         return listaDatos;
     }
+
+    public ArrayList<EntOfertas> obtenerOfertas() {
+        BaseHelper baseHelp = new BaseHelper(context);
+        SQLiteDatabase bd = baseHelp.getReadableDatabase();
+        ArrayList<EntOfertas> listaOfertas = new ArrayList<>();
+        //
+
+        Cursor cursor = bd.rawQuery("SELECT * FROM " + TABLA_OFERTA, null);
+        if (cursor.moveToFirst()) {
+            do {
+                int idIndex = cursor.getColumnIndexOrThrow("IDOEFRTA");
+                int nombreIndex = cursor.getColumnIndexOrThrow("NOMBRE");
+                int id = cursor.getInt(idIndex);
+                String nombre = cursor.getString(nombreIndex);
+                EntOfertas gas = new EntOfertas(id,null, nombre,null,null,null,null);
+                listaOfertas.add(gas);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        bd.close();
+        return listaOfertas;
+    }
+
+    public int updateOferta(int idOferta, String nombre, String idTipoGas, String fechaInicio, String fechaFin, String cantidadPuntos) {
+        BaseHelper baseHelp = new BaseHelper(context);
+        SQLiteDatabase bd = baseHelp.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("NOMBRE", nombre);
+        values.put("IDTIPOGAS", idTipoGas);
+        values.put("FECHAINICIO", fechaInicio);
+        values.put("FECHAFIN", fechaFin);
+        values.put("CANTIDAD_PUNTOS", cantidadPuntos);
+
+        String whereClause = "IDOEFRTA = ?";
+        String[] whereArgs = {String.valueOf(idOferta)};
+
+        return bd.update(TABLA_OFERTA, values, whereClause, whereArgs);
+    }
+    public int deleteOferta(int idOferta) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int rowsAffected = db.delete(TABLA_OFERTA, "IDOEFRTA=?", new String[]{String.valueOf(idOferta)});
+        db.close();
+        return rowsAffected;
+    }
+
+
+
+
+
 
 }

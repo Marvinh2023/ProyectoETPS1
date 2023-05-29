@@ -24,4 +24,10 @@ public class EntTipoGas {
     public void setNomgas(String nomgas) {
         Nomgas = nomgas;
     }
+
+    @Override
+    public String toString() {
+        return Nomgas;
+    }
+
 }

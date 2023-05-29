@@ -31,35 +31,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_begin="4dp" />
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_begin="170dp" />
-
-                <ImageView
-                    android:id="@+id/imageView2"
+                <Spinner
+                    android:id="@+id/spinnerOfertas"
                     android:layout_width="match_parent"
-                    android:layout_height="94dp"
-                    android:layout_marginTop="12dp"
-                    app:srcCompat="@drawable/logo" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TANQUE LLENO"
-                    android:textAlignment="center"
-                    android:textColor="#FAF5F5"
-                    android:textSize="24sp" />
+                    android:layout_height="wrap_content" />
 
                 <EditText
                     android:id="@+id/edtNombreOferta"
@@ -83,6 +58,7 @@
                     android:ems="10"
                     android:textColor="#FAF5F5"
                     android:textColorHint="#EFE7E7"
+                    android:spinnerStyle="@style/SpinnerStyle"
                     />
 
 
@@ -127,12 +103,34 @@
 
                 <Button
                     android:id="@+id/btnGuardarOferta"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="63dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@null"
                     android:backgroundTint="#D61515"
                     android:text="Guardar Oferta"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnModificarOferta"
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@null"
+                    android:backgroundTint="#D61515"
+                    android:text="Modificar Oferta"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnBorrarOferta"
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@null"
+                    android:backgroundTint="#D61515"
+                    android:text="Borrar Oferta"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
