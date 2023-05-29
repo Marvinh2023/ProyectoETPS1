@@ -84,6 +84,4 @@ public class Clientes extends BaseHelper{
         cursor.close();
         return cliente;
     }
-
-
 }

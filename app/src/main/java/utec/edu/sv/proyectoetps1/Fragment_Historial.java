@@ -1,64 +1,71 @@
 package utec.edu.sv.proyectoetps1;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Fragment_Historial#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+import utec.edu.sv.proyectoetps1.adaptadores.LstOfertasAdapter;
+import utec.edu.sv.proyectoetps1.adaptadores.LstOfertasClienteAdapter;
+import utec.edu.sv.proyectoetps1.datos.Clientes;
+import utec.edu.sv.proyectoetps1.datos.Ofertas;
+import utec.edu.sv.proyectoetps1.datos.OfertasClientes;
+import utec.edu.sv.proyectoetps1.entidades.Cliente;
+import utec.edu.sv.proyectoetps1.entidades.EntOfertas;
+import utec.edu.sv.proyectoetps1.entidades.EntOfertasClientes;
+
 public class Fragment_Historial extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Fragment_Historial() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment_Historial.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Fragment_Historial newInstance(String param1, String param2) {
-        Fragment_Historial fragment = new Fragment_Historial();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    RecyclerView listaOfertas;
+    ArrayList<EntOfertasClientes> AlistOferta;
+    Context context;
+    private int idCliente;
+    private String telefono;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__historial, container, false);
+        getData();
+        View view = inflater.inflate(R.layout.fragment__historial, container, false);
+
+        listaOfertas = view.findViewById(R.id.rcvLstOfertasClientes);
+        listaOfertas.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        OfertasClientes dbOfertasClientes = new OfertasClientes(getActivity());
+
+        AlistOferta = new ArrayList<>();
+        LstOfertasClienteAdapter adapter = new LstOfertasClienteAdapter(dbOfertasClientes.listarOfertasCliente(idCliente,telefono));
+        System.out.println(adapter.getItemCount());
+        listaOfertas.setAdapter(adapter);
+
+        return view;
     }
+
+    public void getData(){
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("my_preferences", requireContext().MODE_PRIVATE);
+        String username = sharedPreferences.getString("username", "");
+        String password = sharedPreferences.getString("password", "");
+
+        Clientes client = new Clientes(requireContext().getApplicationContext());
+        Cliente cliente = client.checkUserCredentials(username, password);
+        idCliente = cliente.getId();
+        telefono = cliente.getTelefono();
+    }
+
+
 }
