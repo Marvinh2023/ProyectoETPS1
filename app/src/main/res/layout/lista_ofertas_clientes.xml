@@ -29,7 +29,7 @@
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="320dp"
+                    android:layout_width="520dp"
                     android:layout_height="115dp"
                     android:background="@drawable/border_card">
 
@@ -38,13 +38,13 @@
                         android:layout_width="94dp"
                         android:layout_height="105dp"
                         android:layout_marginStart="16dp"
-                        android:src="@drawable/sale"
+                        android:src="@drawable/gas"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvNombre"
+                        android:id="@+id/tvPuntosOfertas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -56,7 +56,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvNomGas"
+                        android:id="@+id/tvNombreOferta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -65,10 +65,10 @@
                         android:textColor="#FAF5F5"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView6"
-                        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvPuntosOfertas" />
 
                     <TextView
-                        android:id="@+id/tvFechaIniFin"
+                        android:id="@+id/tvFechaOferta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
@@ -77,7 +77,7 @@
                         android:textColor="#FAF5F5"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/imageView6"
-                        app:layout_constraintTop_toBottomOf="@+id/tvNomGas" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvNombreOferta" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

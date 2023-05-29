@@ -50,4 +50,8 @@ public class LstOfertasAdapter extends RecyclerView.Adapter<LstOfertasAdapter.Of
             
         }
     }
+
+    public ArrayList<EntOfertas> getListaofertas() {
+        return listaofertas;
+    }
 }
