@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
-                    android:id="@+id/edtNombreOferta"
+                    android:id="@+id/edtNombre"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="12dp"
@@ -50,7 +50,7 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/edtTipoGasOferta"
+                    android:id="@+id/edtApellido"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"
@@ -63,7 +63,7 @@
 
 
                 <EditText
-                    android:id="@+id/edtFechaIOferta"
+                    android:id="@+id/edtTelefono"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"
@@ -76,7 +76,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edtFechaFinOferta"
+                    android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"
@@ -89,7 +89,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edtPuntosOferta"
+                    android:id="@+id/edtDui"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"

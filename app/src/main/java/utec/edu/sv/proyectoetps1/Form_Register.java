@@ -22,11 +22,11 @@ public class Form_Register extends AppCompatActivity {
         setContentView(R.layout.activity_form_register);
         context = getApplicationContext();
 
-        txtNombre = findViewById(R.id.edtNombreOferta);
-        txtApellido = findViewById(R.id.edtTipoGasOferta);
-        txtTelefono = findViewById(R.id.edtFechaIOferta);
-        txtCorreo = findViewById(R.id.edtFechaFinOferta);
-        txtDui = findViewById(R.id.edtUsuario);
+        txtNombre = findViewById(R.id.edtNombre);
+        txtApellido = findViewById(R.id.edtApellido);
+        txtTelefono = findViewById(R.id.edtTelefono);
+        txtCorreo = findViewById(R.id.edtEmail);
+        txtDui = findViewById(R.id.edtDui);
         txtUsuario = findViewById(R.id.edtUsuario);
         txtContrasena = findViewById(R.id.edtContrasena);
         txtRepetircontrasena = findViewById(R.id.edtRepetirContrasena);

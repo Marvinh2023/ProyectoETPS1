@@ -62,7 +62,7 @@
                     android:textSize="24sp" />
 
                 <EditText
-                    android:id="@+id/edtNombreOferta"
+                    android:id="@+id/edtNombre"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="12dp"
@@ -75,7 +75,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edtTipoGasOferta"
+                    android:id="@+id/edtApellido"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"
@@ -88,7 +88,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edtFechaIOferta"
+                    android:id="@+id/edtTelefono"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"
@@ -101,7 +101,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edtFechaFinOferta"
+                    android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"
@@ -114,7 +114,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edtPuntosOferta"
+                    android:id="@+id/edtDui"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"
@@ -147,7 +147,7 @@
                     android:backgroundTint="#FAF5F5"
                     android:ems="10"
                     android:hint="Contraseña"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     android:textColor="#FAF5F5"
                     android:textColorHint="#EFE7E7"
                     android:textStyle="bold" />
@@ -160,7 +160,7 @@
                     android:backgroundTint="#FAF5F5"
                     android:ems="10"
                     android:hint="Repita contraseña"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     android:textColor="#FAF5F5"
                     android:textColorHint="#EFE7E7"
                     android:textStyle="bold" />

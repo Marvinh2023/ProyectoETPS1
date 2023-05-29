@@ -33,6 +33,7 @@ public class Clientes extends BaseHelper{
              valClient.put("DUI", DUI);
              valClient.put("USUARIO", USUARIO);
              valClient.put("CONTRASENA", CONTRASENA);
+             valClient.put("PUNTAJE", 100);
 
              flag = bd.insert(TABLA_CLIENTE, null, valClient);
              return flag;

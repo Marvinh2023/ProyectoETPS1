@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import utec.edu.sv.proyectoetps1.datos.Clientes;
 import utec.edu.sv.proyectoetps1.datos.Ofertas;
 import utec.edu.sv.proyectoetps1.entidades.EntOfertas;
 import utec.edu.sv.proyectoetps1.entidades.EntTipoGas;
@@ -32,12 +30,12 @@ public class Form_Ofertas extends AppCompatActivity {
         setContentView(R.layout.activity_form_ofertas);
         context = getApplicationContext();
 
-        edtNombre = findViewById(R.id.edtNombreOferta);
-        edtTipo = findViewById(R.id.edtTipoGasOferta);
+        edtNombre = findViewById(R.id.edtNombre);
+        edtTipo = findViewById(R.id.edtApellido);
         spnOfertas = findViewById(R.id.spinnerOfertas);
-        edtFechaI = findViewById(R.id.edtFechaIOferta);
-        edtFechaF = findViewById(R.id.edtFechaFinOferta);
-        edtCantPuntos = findViewById(R.id.edtPuntosOferta);
+        edtFechaI = findViewById(R.id.edtTelefono);
+        edtFechaF = findViewById(R.id.edtEmail);
+        edtCantPuntos = findViewById(R.id.edtDui);
         btnGuardar = findViewById(R.id.btnGuardarOferta);
         btnActualizar = findViewById(R.id.btnModificarOferta);
         btnEliminar = findViewById(R.id.btnBorrarOferta);
