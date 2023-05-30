@@ -76,12 +76,12 @@ public class OfertasClientes extends BaseHelper{
         Cursor cursor = db.rawQuery(query, selectionArgs);
         if(cursor.moveToFirst())
         {
-       do{
-                ofertaCliente= new EntOfertasClientes();
-                ofertaCliente.setNombre(cursor.getString(0));
-                ofertaCliente.setFechaCajeo(cursor.getString(1));
-                ofertaCliente.setCantPuntosRedimidos(cursor.getInt(2));
-                listaOfertasCliente.add(ofertaCliente);
+            do{
+               ofertaCliente= new EntOfertasClientes();
+               ofertaCliente.setNombre(cursor.getString(1));
+               ofertaCliente.setFechaCajeo(cursor.getString(2));
+               ofertaCliente.setCantPuntosRedimidos(cursor.getInt(3));
+               listaOfertasCliente.add(ofertaCliente);
             }while(cursor.moveToNext());
        }
         cursor.close();

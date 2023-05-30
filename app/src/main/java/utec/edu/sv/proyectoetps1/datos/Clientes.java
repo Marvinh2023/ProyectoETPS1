@@ -85,4 +85,37 @@ public class Clientes extends BaseHelper{
         cursor.close();
         return cliente;
     }
+
+    public boolean updatePerfil(String password, String nuevoNombre, String nuevaContrasena) {
+        BaseHelper baseHelp = new BaseHelper(context);
+        SQLiteDatabase bd = baseHelp.getWritableDatabase();
+
+        // Verificar si la contraseña ingresada coincide
+        String query = "SELECT COUNT(*) FROM "+TABLA_CLIENTE+" WHERE contrasena = ?";
+        String[] selectionArgs = {password};
+        Cursor cursor = bd.rawQuery(query, selectionArgs);
+
+        if (cursor.moveToFirst()) {
+            int rowCount = cursor.getInt(0);
+            cursor.close();
+
+            if (rowCount > 0) {
+                // La contraseña coincide, realizar la actualización
+                ContentValues values = new ContentValues();
+                values.put("nombre", nuevoNombre);
+                values.put("contrasena", nuevaContrasena);
+
+                String whereClause = "1"; // Actualizar todos los registros
+                String[] whereArgs = {};
+
+                int rowsAffected = bd.update(TABLA_CLIENTE, values, whereClause, whereArgs);
+                return rowsAffected > 0;
+            }
+        }
+
+        cursor.close();
+        return false;
+    }
+
+
 }

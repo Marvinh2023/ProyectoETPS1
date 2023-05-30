@@ -107,15 +107,15 @@ public class Fragment_Ofertas extends Fragment {
                 result = dbOfertasClientes.insertOffertCliente(idOferta,idCliente,cantPuntosInt,"27/05/2023");
                 if (result > 0){
                     message ="Oferta canjeada con éxito ";
-                    //showToast(message);
+                    showToast(message);
                     result = dbOfertasClientes.updateCliente((cantPuntosCliente-cantPuntosInt),idCliente);
                     if (result >0){
-                        System.out.println("puntaje del cliente actualizado correctamente");
+                        showToast("puntaje del cliente actualizado correctamente");
                     }
                 }
             }else{
                 message = "El cliente no tiene suficientes puentos para canjear la oferta ";
-               // showToast(message);
+                showToast(message);
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -134,12 +134,7 @@ public class Fragment_Ofertas extends Fragment {
     }
 
     private void showToast(final String message) {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-            }
-        });
+        Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show();
     }
 
 }
